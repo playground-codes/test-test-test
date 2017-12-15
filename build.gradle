@@ -3,6 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply from: rootProject.file('gradle/test-report.gradle')
+apply plugin: "jacoco"
 
 sourceCompatibility = 1.8
 
@@ -13,3 +14,12 @@ repositories {
 dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+jacocoTestReport {
+  reports {
+    xml.enabled false
+    html.enabled true
+  }
+}
+
+check.dependsOn jacocoTestReport
