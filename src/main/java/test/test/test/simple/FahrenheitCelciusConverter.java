@@ -1,4 +1,4 @@
-package test.test.test;
+package test.test.test.simple;
 
 public class FahrenheitCelciusConverter {
   public static long toFahrenheit(long celcius) {

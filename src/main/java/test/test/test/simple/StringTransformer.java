@@ -1,4 +1,4 @@
-package test.test.test;
+package test.test.test.simple;
 
 public class StringTransformer {
 

@@ -1,4 +1,4 @@
-package test.test.test;
+package test.test.test.simple;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.junit.runners.Parameterized.Parameter;
+import test.test.test.simple.FahrenheitCelciusConverter;
 
 import static org.junit.Assert.*;
 

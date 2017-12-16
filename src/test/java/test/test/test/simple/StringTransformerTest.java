@@ -1,4 +1,4 @@
-package test.test.test;
+package test.test.test.simple;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import test.test.test.simple.StringTransformer;
 
 import static org.junit.Assert.*;
 

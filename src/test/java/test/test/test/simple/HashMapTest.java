@@ -1,4 +1,4 @@
-package test.test.test;
+package test.test.test.simple;
 
 import java.util.HashMap;
 import org.junit.Before;
