@@ -9,14 +9,23 @@ import test.test.test.mockstubspy.RaceResultService.*;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 
 public class RaceResultServiceTest {
   @Mock
-  Message message; // a dummy object
+  RaceType horseRace; // a dummy object
+  @Mock
+  RaceType f1Race; // a dummy object
+  @Mock
+  Message horseRaceMessage; // a dummy object
+  @Mock
+  Message f1RaceMessage; // a dummy object
   @Mock
   Client clientA; // a test spy
   @Mock
   Client clientB; // a test spy
+  @Mock
+  Logger logger; // a test spy
 
   private RaceResultService raceResultService;
 
@@ -29,50 +38,64 @@ public class RaceResultServiceTest {
   // zero subscribers
   @Test
   public void notSubscribedClientShouldNotReceiveMessage() {
-    raceResultService.send(message);
+    raceResultService.send(horseRace, horseRaceMessage);
+    raceResultService.send(f1Race, f1RaceMessage);
 
-    verify(clientA, never()).receive(message);
-    verify(clientB, never()).receive(message);
+    verifyZeroInteractions(clientA);
+    verifyZeroInteractions(clientB);
   }
 
   // one subscriber
   @Test
   public void subscribedClientShouldReceiveMessage() {
-    raceResultService.addSubscriber(clientA);
-    raceResultService.send(message);
+    raceResultService.addSubscriber(horseRace, clientA);
+    raceResultService.send(horseRace, horseRaceMessage);
 
-    verify(clientA).receive(message);
+    verify(clientA).receive(horseRaceMessage);
   }
 
   // two subscribers
   @Test
   public void allSubscribedClientsShouldReceiveMessage() {
-    raceResultService.addSubscriber(clientA);
-    raceResultService.addSubscriber(clientB);
+    raceResultService.addSubscriber(horseRace, clientA);
+    raceResultService.addSubscriber(f1Race, clientB);
+    raceResultService.send(horseRace, horseRaceMessage);
+    raceResultService.send(f1Race, f1RaceMessage);
 
-    raceResultService.send(message);
-
-    verify(clientA).receive(message);
-    verify(clientB).receive(message);
+    verify(clientA).receive(horseRaceMessage);
+    verify(clientB).receive(f1RaceMessage);
   }
 
   @Test
   public void shouldSendOnlyOneMessageToMultiSubscriber() {
-    raceResultService.addSubscriber(clientA);
-    raceResultService.addSubscriber(clientA);
+    raceResultService.addSubscriber(horseRace, clientA);
+    raceResultService.addSubscriber(horseRace, clientA);
 
-    raceResultService.send(message);
+    raceResultService.send(horseRace, horseRaceMessage);
 
-    verify(clientA, times(1)).receive(message);
+    verify(clientA, times(1)).receive(horseRaceMessage);
   }
 
   @Test
   public void unsubscribedClientShouldNotReceiveMessage() {
-    raceResultService.addSubscriber(clientA);
-    raceResultService.removeSubscriber(clientA);
+    raceResultService.addSubscriber(horseRace, clientA);
+    raceResultService.removeSubscriber(horseRace, clientA);
 
-    raceResultService.send(message);
+    raceResultService.send(horseRace, horseRaceMessage);
 
-    verify(clientA, never()).receive(message);
+    verify(clientA, never()).receive(horseRaceMessage);
+  }
+
+  @Test
+  public void shouldLogEverySentMessages() {
+    raceResultService.setLogger(logger);
+    raceResultService.send(horseRace, horseRaceMessage);
+
+    verify(logger).log(horseRaceMessage);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void shouldThrowExceptionWhenUnsubscribedClientTryToUnsubscribe() {
+    raceResultService.removeSubscriber(horseRace, clientA);
   }
 }
