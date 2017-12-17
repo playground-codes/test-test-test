@@ -1,7 +1,6 @@
 package test.test.test.mockstubspy;
 
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,10 +28,6 @@ public class RaceResultService {
   }
 
   public interface Client {
-    void subscribe(RaceResultService service);
-
-    void unsubcribe(RaceResultService service);
-
     void receive(Message message);
   }
 
