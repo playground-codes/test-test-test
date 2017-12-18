@@ -7,11 +7,13 @@ Code coverage: [![codecov](https://codecov.io/gh/playground-codes/test-test-test
 ## Frameworks:
 * JUnit4
 * Mockito
+* Java Hamcrest
 
 ## Libraries
 Other awesome tools to make Java Unit testing easier:
 * [JUnitParams](https://github.com/Pragmatists/JUnitParams): Provide easier and readable parametrised tests (required Junit >= 4.12).
-
+* [FEST-assert](https://github.com/alexruiz/fest-assert-2.x): Another fluent matcher library (but not be maintained anymore).
+* [Catch-Exception](https://github.com/Codearte/catch-exception): Catch exceptions for a single line of code and make it easier to read and inspect error. 
 ## TDD - Test-Driven Development
 * **Mantras**: GREEN - RED - REFACTOR.
 * **Rule**: *Never write code unless you have a failing test.*
@@ -48,5 +50,5 @@ Because interaction depends on production code, if implementation changes, our t
   
 
 ## References
-1. "Pratical Unit Testing with JUnit and Mockito" book by Tomek Kaczanowsk
+1. "Practical Unit Testing with JUnit and Mockito" book by Tomek Kaczanowsk
 2. [StackOverflow question about differences between Mock, Stub, and Spy](https://stackoverflow.com/questions/24413184/can-someone-explain-the-difference-between-mock-stub-and-spy-in-spock-framewor)
