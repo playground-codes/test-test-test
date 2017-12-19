@@ -10,11 +10,16 @@ Code coverage: [![codecov](https://codecov.io/gh/playground-codes/test-test-test
 * Java Hamcrest
 
 ## Libraries
-Other awesome tools to make Java Unit testing easier:
+Other awesome libraries to make Java Unit testing easier and more fluently.
 * [JUnitParams](https://github.com/Pragmatists/JUnitParams): Provide easier and readable parametrised tests (required Junit >= 4.12).
 * [FEST-assert](https://github.com/alexruiz/fest-assert-2.x): Another fluent matcher library (but not be maintained anymore).
 * [Catch-Exception](https://github.com/Codearte/catch-exception): Catch exceptions for a single line of code and make it easier to read and inspect error.
 * [Awaitility](https://github.com/awaitility/awaitility): Synchronize asynchronous operations in testing.  
+* [tempus-fugit](http://tempusfugitlibrary.org/): Write and test concurrent codes.
+
+## Application
+Other useful tools for testing support.
+* [JMeter](https://jmeter.apache.org/): Test functional behavior and performance. 
 
 ## TDD - Test-Driven Development
 * **Mantras**: GREEN - RED - REFACTOR.
