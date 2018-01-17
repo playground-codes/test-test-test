@@ -1,4 +1,4 @@
-package test.test.test.mockstubspy;
+package test.test.test.testdouble;
 
 import java.util.HashMap;
 import java.util.LinkedHashSet;

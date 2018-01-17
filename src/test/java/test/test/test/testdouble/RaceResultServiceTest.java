@@ -1,10 +1,10 @@
-package test.test.test.mockstubspy;
+package test.test.test.testdouble;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import test.test.test.mockstubspy.RaceResultService.*;
+import test.test.test.testdouble.RaceResultService.*;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;

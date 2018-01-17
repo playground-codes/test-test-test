@@ -1,7 +1,7 @@
-package test.test.test.mockstubspy;
+package test.test.test.testdouble;
 
 import org.junit.Test;
-import test.test.test.mockstubspy.UserServiceImpl.*;
+import test.test.test.testdouble.UserServiceImpl.*;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;

@@ -1,10 +1,10 @@
-package test.test.test.mockstubspy;
+package test.test.test.testdouble;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import test.test.test.mockstubspy.Messenger.*;
+import test.test.test.testdouble.Messenger.*;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.doReturn;
